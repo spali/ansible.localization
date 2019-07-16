@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   vars:
-    localization_timezone_linux: Europe/Amsterdam
+    localization_timezone_linux: 'Europe/Amsterdam'
   roles:
     - role: arillso.localization
