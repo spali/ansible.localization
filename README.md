@@ -25,7 +25,7 @@ localization_timezone_windows: 'W. Europe Standard Time'
 localization_timezone_linux: 'Europe/Zurich'
 ```
 
-Alternatively, you can directly use the 'localization_timezone' can be used. The correct format must be observed.
+Alternatively, the variable 'localization_timezone' can be used directly. Make sure to use the correct format.
 
 ```yml
 localization_timezone:
@@ -49,11 +49,11 @@ Console keyboard layout (sg = swiss german)
 localization_keymap: 'sg'
 ```
 
-### Winodws
+### Windows
 
 #### region
 
-Set the location, format and unicode language settings of a Windows.
+Sets the location, format and unicode language settings of a Windows.
 
 ```yml
 localization_region:
@@ -62,7 +62,7 @@ localization_region:
   unicode_language: de-CH
 ```
 
-#### input keyboard
+#### keyboard input
 
 Sets the keyboard layout for Windows
 
@@ -71,6 +71,8 @@ localization_inputlang: 0807:00000807
 ```
 
 ## Dependencies
+
+none
 
 ## Example Playbook
 
