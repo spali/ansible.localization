@@ -4,7 +4,7 @@
 
 ## Description
 
-This role configures different aspeckte of localization under Linux and Windows. It sets the timezone, the default locale and the keyboard layout during input.
+This role configures different aspects of localization under Linux and Windows. It sets the timezone, the default locale and the keyboard layout during input.
 
 ## Installation
 
