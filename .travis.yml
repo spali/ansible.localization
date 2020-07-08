@@ -39,6 +39,7 @@ before_script:
   - sudo chown -R travis /home/travis/.vagrant.d
   - find /home/travis/.vagrant.d/data
   - find /home/travis/.vagrant.d/data | xargs ls -l
+  - sudo cat /etc/group | grep $USER
 
 script:
   - molecule test -s windows
