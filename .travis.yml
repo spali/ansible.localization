@@ -28,7 +28,7 @@ install:
   # Install vagrant-libvirt Vagrant plugin
   - sudo vagrant plugin install vagrant-libvirt
 
-  - pip install molecule==2.22 docker
+  - pip install molecule==2.22 docker python-vagrant
 
   - git clone https://github.com/arillso/tests molecule/default/lint
 
