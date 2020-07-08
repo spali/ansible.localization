@@ -26,7 +26,7 @@ install:
   - vagrant --version
 
   # Install vagrant-libvirt Vagrant plugin
-  - sudo vagrant plugin install vagrant-libvirt
+  - vagrant plugin install vagrant-libvirt
 
   - pip install molecule==2.22 docker python-vagrant
 
@@ -36,6 +36,7 @@ before_script:
   - cd ../
   - mv ansible.$ROLE_NAME arillso.$ROLE_NAME
   - cd arillso.$ROLE_NAME
+  - rm -rf /home/travis/.vagrant.d/data
 
 script:
   - molecule test -s windows
