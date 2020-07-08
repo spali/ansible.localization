@@ -43,7 +43,7 @@ before_script:
   - sudo chown -R travis /home/travis/.vagrant.d
   - find /home/travis/.vagrant.d/data
   - find /home/travis/.vagrant.d/data | xargs ls -l
-  - sudo usermod -a -G libvirtd $USER
+  - sudo usermod -a -G libvirt $USER
   - sudo cat /etc/group | grep $USER
 
 script:
