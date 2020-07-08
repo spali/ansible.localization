@@ -38,10 +38,11 @@ before_script:
   - cd arillso.$ROLE_NAME
 
 script:
-  - molecule test --all
+  - molecule test -s windows
 
 after_failure:
-  - if [ -f /home/travis/.cache/molecule/arillso.localization/windows/vagrant-vagrant-win2012r2.err ]; then cat /home/travis/.cache/molecule/arillso.localization/windows/vagrant-vagrant-win2012r2.err; fi
+  - LOGF=/home/travis/.cache/molecule/arillso.localization/windows/vagrant-vagrant-win2012r2.err
+  - if [ -f $LOGF ]; then cat $LOGF; fi
 
 notifications:
   email:
