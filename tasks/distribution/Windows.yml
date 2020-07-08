@@ -14,19 +14,31 @@
     format: '{{ localization_region.format }}'
     unicode_language: '{{ localization_region.unicode_language }}'
     copy_settings: true
+  register: win_region_result
 
-- name: 'windows : Sets the language list for the current user account'
-  win_shell: 'Set-WinUserLanguageList de-CH -Force'
+- name: 'windows : Sets loggin keyboard language'
+  win_regedit:
+    path: "HKU:\\.DEFAULT\\Keyboard Layout\\Preload"
+    name: '1'
+    data: '{{ localization_keyboardlang }}'
+    type: 'String'
+  register: loggin_keyb
 
-- name: 'windows : Sets the default input method override for the user account'
-  win_shell: "{{ command + ' ' + localization_inputlang }}"
-  vars:
-    command: 'Set-WinDefaultInputMethodOverride -InputTip'
+- name: 'windows : Sets keyboard language for {{ansible_user}} user'
+  win_regedit:
+    path: "HKCU:\\Keyboard Layout\\Preload"
+    name: '1'
+    data: '{{ localization_keyboardlang }}'
+    type: 'String'
 
-- name: 'windows : Loggin Keyboard Language'
+- name: 'windows : Sets loggin keyboard language for new users'
   win_regedit:
     path: "HKLM:\\ANSIBLE\\Keyboard Layout\\Preload"
     name: '1'
     data: '{{ localization_keyboardlang }}'
     type: 'String'
     hive: C:\Users\Default\NTUSER.dat
+
+- name: 'windows : Reboot if required'
+  win_reboot:
+  when: loggin_keyb.changed or win_region_result.restart_required

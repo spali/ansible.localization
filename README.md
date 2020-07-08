@@ -67,7 +67,7 @@ localization_region:
 Sets the keyboard layout for Windows
 
 ```yml
-localization_inputlang: 0807:00000807
+localization_keyboardlang: '00000807'
 ```
 
 ## Dependencies
