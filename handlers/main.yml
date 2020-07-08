@@ -1,2 +1,4 @@
 ---
 # handlers file for arillso.localization
+- name: windows reboot
+  win_reboot:
