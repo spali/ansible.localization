@@ -39,7 +39,7 @@ before_script:
   - sudo rm -rf /home/travis/.vagrant.d/data
 
 script:
-  - sudo molecule test -s windows
+  - molecule test -s windows
 
 after_failure:
   - LOGF=/home/travis/.cache/molecule/arillso.localization/windows/vagrant-vagrant-win2012r2.err
