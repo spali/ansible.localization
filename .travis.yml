@@ -36,7 +36,7 @@ before_script:
   - cd ../
   - mv ansible.$ROLE_NAME arillso.$ROLE_NAME
   - cd arillso.$ROLE_NAME
-  - sudo rm -rf /home/travis/.vagrant.d/data
+  - sudo find /home/travis/.vagrant.d/data
 
 script:
   - molecule test -s windows
