@@ -40,6 +40,9 @@ before_script:
 script:
   - molecule test --all
 
+after_failure:
+  - if [ -f /home/travis/.cache/molecule/arillso.localization/windows/vagrant-vagrant-win2012r2.err ]; then cat /home/travis/.cache/molecule/arillso.localization/windows/vagrant-vagrant-win2012r2.err; fi
+
 notifications:
   email:
     on_success: never
