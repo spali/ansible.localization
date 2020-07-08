@@ -15,7 +15,7 @@ install:
   # Install libvrt & KVM (see
   # github.com/alvistack/ansible-role-virtualbox/blob/master/.travis.yml)
   - sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base
-    ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+    ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev python3-pip
 
   - sudo cat /etc/libvirt/libvirtd.conf
 
@@ -32,7 +32,7 @@ install:
   # Install vagrant-libvirt Vagrant plugin
   - sudo vagrant plugin install vagrant-libvirt
 
-  - sudo pip install molecule==2.22 docker python-vagrant
+  - sudo pip3 install molecule==2.22 docker python-vagrant
 
   - git clone https://github.com/arillso/tests molecule/default/lint
 
