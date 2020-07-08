@@ -38,7 +38,7 @@ before_script:
   - cd arillso.$ROLE_NAME
 
 script:
-  - molecule test
+  - molecule test --all
 
 notifications:
   email:
