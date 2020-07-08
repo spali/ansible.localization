@@ -48,7 +48,7 @@ before_script:
   - sudo cat /etc/group | grep $USER
 
 script:
-  - sudo molecule test -s windows
+  - travis_wait 30 sudo molecule test -s windows
 
 after_failure:
   - LOGF=/home/travis/.cache/molecule/arillso.localization/windows/vagrant-vagrant-win2012r2.err
