@@ -32,7 +32,7 @@ install:
   # Install vagrant-libvirt Vagrant plugin
   - sudo vagrant plugin install vagrant-libvirt
 
-  - pip install molecule==2.22 docker python-vagrant
+  - sudo pip install molecule==2.22 docker python-vagrant
 
   - git clone https://github.com/arillso/tests molecule/default/lint
 
@@ -47,7 +47,7 @@ before_script:
   - sudo cat /etc/group | grep $USER
 
 script:
-  - molecule test -s windows
+  - sudo molecule test -s windows
 
 after_failure:
   - LOGF=/home/travis/.cache/molecule/arillso.localization/windows/vagrant-vagrant-win2012r2.err
