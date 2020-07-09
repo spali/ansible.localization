@@ -16,7 +16,7 @@ install:
   # github.com/alvistack/ansible-role-virtualbox/blob/master/.travis.yml)
   - sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base
     ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev python3-pip
-    python3-setuptools
+    python3-setuptools python3-winrm
 
   - sudo cat /etc/libvirt/libvirtd.conf
 
