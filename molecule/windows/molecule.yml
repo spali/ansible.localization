@@ -1,0 +1,34 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+lint:
+  name: yamllint
+platforms:
+  - name: vagrant-win2012r2
+    box: jborean93/WindowsServer2012R2
+    memory: 2048
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      vagrant-win2012r2:
+        ansible_user: vagrant
+        ansible_password: vagrant
+        ansible_port: 55986
+        ansible_host: 127.0.0.1
+        ansible_connection: winrm
+        ansible_winrm_transport: ntlm
+        ansible_winrm_scheme: https
+        ansible_winrm_server_cert_validation: ignore
+  lint:
+    name: ansible-lint
+scenario:
+  name: windows
+verifier:
+  name: ansible
+  lint:
+    name: ansible-lint
