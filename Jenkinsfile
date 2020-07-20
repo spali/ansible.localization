@@ -28,12 +28,14 @@ def executeKitchenTarget(String label, String target) {
         sh """#!/bin/bash
           set -x
           bash ~/bin/vms_destroy.sh
+          cd arillso.localization
           molecule test -s $target
         """
       } catch (FlowInterruptedException ie) {
         sh """#!/bin/bash
           set -x
-          win2012r2 destroy -s $target
+          cd arillso.localization
+          molecule destroy -s $target
         """
       } finally {
 //         sh """#!/bin/bash
