@@ -3,7 +3,7 @@ import org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
 stage('root') {
   try {
     stage('win2012r2') {
-      node('nomaster') {
+      node('lp009') {
          sleep 1
          executeKitchenTarget('win2012r2', 'windows')
       }
