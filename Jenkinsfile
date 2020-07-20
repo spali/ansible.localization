@@ -21,7 +21,7 @@ stage('root') {
 }
 
 def executeKitchenTarget(String label, String target) {
-  checkout([$class: 'GitSCM', branches: [[name: env.BRANCH_NAME]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jpmat296/ansible.localization']]])
+  checkout([$class: 'GitSCM', branches: [[name: env.BRANCH_NAME]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'arillso.localization']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jpmat296/ansible.localization']]])
   stage('molecule') {
     timestamps {
       try {
