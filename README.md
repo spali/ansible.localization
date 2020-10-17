@@ -33,12 +33,13 @@ localization_timezone:
 
 ### Linux
 
-#### locale
+#### locale and language
 
-Default locale. See `man 7 locale`
+Default locale and language. See `man 7 locale`
 
 ```yml
 localization_default_locale: "en_US.UTF-8"
+localization_default_language: "en_US.UTF-8"
 ```
 
 #### console keyboard

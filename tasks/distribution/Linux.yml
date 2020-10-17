@@ -8,10 +8,29 @@
     timezone_os: "{{ localization_timezone_linux }}"
     timezone_default: "{{ localization_timezone }}"
 
-- name: "linux : Set default locale"
-  copy:
-    content: "LANG={{ localization_default_locale }}"
-    dest: /etc/locale.conf
-    owner: root
-    group: root
-    mode: 0644
+- name: "linux : Ensure the locale exists"
+  locale_gen:
+    name: "{{ localization_default_locale }}"
+    state: present
+
+- name: "linux : Ensure the language exists"
+  locale_gen:
+    name: "{{ localization_default_language }}"
+    state: present
+
+- name: "linux : Get current locale and language configuration"
+  command: localectl status
+  register: locale_status
+  changed_when: false
+
+- name: "linux : Get 'LANG' from current locale and language configuration"
+  set_fact:
+    locale_lang: "{{ locale_status.stdout | regex_search('LANG=([^\n]+)', '\\1') | first }}"
+
+- name: "linux : Get 'LANGUAGE' from current locale and language configuration"
+  set_fact:
+    locale_language: "{{ locale_status.stdout | regex_search('LANGUAGE=([^\n]+)', '\\1') | default([locale_lang], true) | first }}"
+
+- name: Configure locale to '{{ localization_default_locale }}' and language to '{{ localization_default_language }}'
+  command: localectl set-locale LANG={{ localization_default_locale }} LANGUAGE={{ localization_default_language }}
+  when: locale_lang != localization_default_locale or locale_language != localization_default_language

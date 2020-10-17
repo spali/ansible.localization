@@ -15,6 +15,9 @@ localization_timezone:
 # Default locale. See `man 7 locale`
 localization_default_locale: "en_US.UTF-8"
 
+# Default language.
+localization_default_language: "en_US.UTF-8"
+
 # Console keyboard layout (sg = swiss german)
 localization_keymap: "sg"
 
