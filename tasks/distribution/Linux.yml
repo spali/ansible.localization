@@ -1,16 +1,16 @@
 ---
 # tasks file for arillso.localization
 
-- name: 'linux : Set TimeZone {{ timezone_os | default(timezone_default) }}'
+- name: "linux : Set TimeZone {{ timezone_os | default(timezone_default) }}"
   timezone:
-    name: '{{ timezone_os | default(timezone_default) }}'
+    name: "{{ timezone_os | default(timezone_default) }}"
   vars:
-    timezone_os: '{{ localization_timezone_linux }}'
-    timezone_default: '{{ localization_timezone }}'
+    timezone_os: "{{ localization_timezone_linux }}"
+    timezone_default: "{{ localization_timezone }}"
 
-- name: 'linux : Set default locale'
+- name: "linux : Set default locale"
   copy:
-    content: 'LANG={{ localization_default_locale }}'
+    content: "LANG={{ localization_default_locale }}"
     dest: /etc/locale.conf
     owner: root
     group: root

@@ -3,8 +3,8 @@
 
 # Linux and Windows use different Timezone formats.
 # Therefore, for each OS a variable is provided for the Timezone
-localization_timezone_windows: 'W. Europe Standard Time'
-localization_timezone_linux: 'Europe/Zurich'
+localization_timezone_windows: "W. Europe Standard Time"
+localization_timezone_linux: "Europe/Zurich"
 
 # Alternatively, you can directly use the 'localization_timezone'
 # can be used. The correct format must be observed.
@@ -13,10 +13,10 @@ localization_timezone:
 # Linux
 
 # Default locale. See `man 7 locale`
-localization_default_locale: 'en_US.UTF-8'
+localization_default_locale: "en_US.UTF-8"
 
 # Console keyboard layout (sg = swiss german)
-localization_keymap: 'sg'
+localization_keymap: "sg"
 
 # Windows
 
@@ -29,4 +29,4 @@ localization_region:
 
 # Sets the keyboard layout for Windows
 # https://www.itprotoday.com/windows-78/how-do-i-configure-default-keyboard-layout-during-login
-localization_keyboardlang: '00000807'
+localization_keyboardlang: "00000807"

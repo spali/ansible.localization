@@ -21,8 +21,8 @@ ansible-galaxy install arillso.localization
 Linux and Windows use different Timezone formats. Therefore, for each OS a variable is provided for the Timezone
 
 ```yml
-localization_timezone_windows: 'W. Europe Standard Time'
-localization_timezone_linux: 'Europe/Zurich'
+localization_timezone_windows: "W. Europe Standard Time"
+localization_timezone_linux: "Europe/Zurich"
 ```
 
 Alternatively, the variable 'localization_timezone' can be used directly. Make sure to use the correct format.
@@ -38,7 +38,7 @@ localization_timezone:
 Default locale. See `man 7 locale`
 
 ```yml
-localization_default_locale: 'en_US.UTF-8'
+localization_default_locale: "en_US.UTF-8"
 ```
 
 #### console keyboard
@@ -46,7 +46,7 @@ localization_default_locale: 'en_US.UTF-8'
 Console keyboard layout (sg = swiss german)
 
 ```yml
-localization_keymap: 'sg'
+localization_keymap: "sg"
 ```
 
 ### Windows
@@ -67,7 +67,7 @@ localization_region:
 Sets the keyboard layout for Windows
 
 ```yml
-localization_keyboardlang: '00000807'
+localization_keyboardlang: "00000807"
 ```
 
 ## Dependencies

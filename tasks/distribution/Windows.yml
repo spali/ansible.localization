@@ -1,40 +1,40 @@
 ---
 # tasks file for arillso.localization
 
-- name: 'windows : Set TimeZone {{ timezone_os | default(timezone_default) }}'
+- name: "windows : Set TimeZone {{ timezone_os | default(timezone_default) }}"
   win_timezone:
-    timezone: '{{ timezone_os | default(timezone_default) }}'
+    timezone: "{{ timezone_os | default(timezone_default) }}"
   vars:
-    timezone_os: '{{ localization_timezone_windows }}'
-    timezone_default: '{{ localization_timezone }}'
+    timezone_os: "{{ localization_timezone_windows }}"
+    timezone_default: "{{ localization_timezone }}"
 
-- name: 'windows : Set format, location and unicode and copy settings'
+- name: "windows : Set format, location and unicode and copy settings"
   win_region:
-    location: '{{ localization_region.location }}'
-    format: '{{ localization_region.format }}'
-    unicode_language: '{{ localization_region.unicode_language }}'
+    location: "{{ localization_region.location }}"
+    format: "{{ localization_region.format }}"
+    unicode_language: "{{ localization_region.unicode_language }}"
     copy_settings: true
   notify: windows reboot
 
-- name: 'windows : Sets loggin keyboard language'
+- name: "windows : Sets loggin keyboard language"
   win_regedit:
     path: "HKU:\\.DEFAULT\\Keyboard Layout\\Preload"
-    name: '1'
-    data: '{{ localization_keyboardlang }}'
-    type: 'String'
+    name: "1"
+    data: "{{ localization_keyboardlang }}"
+    type: "String"
   notify: windows reboot
 
-- name: 'windows : Sets keyboard language for {{ ansible_user }} user'
+- name: "windows : Sets keyboard language for {{ ansible_user }} user"
   win_regedit:
     path: "HKCU:\\Keyboard Layout\\Preload"
-    name: '1'
-    data: '{{ localization_keyboardlang }}'
-    type: 'String'
+    name: "1"
+    data: "{{ localization_keyboardlang }}"
+    type: "String"
 
-- name: 'windows : Sets loggin keyboard language for new users'
+- name: "windows : Sets loggin keyboard language for new users"
   win_regedit:
     path: "HKLM:\\ANSIBLE\\Keyboard Layout\\Preload"
-    name: '1'
-    data: '{{ localization_keyboardlang }}'
-    type: 'String'
+    name: "1"
+    data: "{{ localization_keyboardlang }}"
+    type: "String"
     hive: C:\Users\Default\NTUSER.dat
