@@ -2,3 +2,4 @@
 # handlers file for arillso.localization
 - name: windows reboot
   win_reboot:
+  when: localization_skip_reboot != True

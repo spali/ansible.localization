@@ -70,6 +70,14 @@ Sets the keyboard layout for Windows
 localization_keyboardlang: "00000807"
 ```
 
+#### Skip Reboot
+
+if the reboot after global keyboard or region settings change should be skipped
+
+```yml
+localization_skip_reboot: True
+```
+
 ## Dependencies
 
 none
