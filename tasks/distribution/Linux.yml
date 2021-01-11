@@ -22,6 +22,7 @@
   command: localectl status
   register: locale_status
   changed_when: false
+  check_mode: no
 
 - name: "linux : Get 'LANG' from current locale and language configuration"
   set_fact:
